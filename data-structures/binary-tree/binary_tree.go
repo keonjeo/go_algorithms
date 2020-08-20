@@ -1,8 +1,6 @@
 // basic binary tree and related operations
 
-package binarytree
-
-// package main
+package main
 
 import "fmt"
 
@@ -28,34 +26,34 @@ func newNode(val int) *node {
 	return n
 }
 
-func inorder(n *node) {
+func inOrder(n *node) {
 	if n == nil {
 		return
 	}
-	inorder(n.left)
+	inOrder(n.left)
 	fmt.Print(n.val, " ")
-	inorder(n.right)
+	inOrder(n.right)
 }
 
-func preorder(n *node) {
+func preOrder(n *node) {
 	if n == nil {
 		return
 	}
 	fmt.Print(n.val, " ")
-	inorder(n.left)
-	inorder(n.right)
+	preOrder(n.left)
+	preOrder(n.right)
 }
 
-func postorder(n *node) {
+func postOrder(n *node) {
 	if n == nil {
 		return
 	}
-	inorder(n.left)
-	inorder(n.right)
+	postOrder(n.left)
+	postOrder(n.right)
 	fmt.Print(n.val, " ")
 }
 
-func levelorder(root *node) {
+func levelOrder(root *node) {
 	var q []*node // queue
 	var n *node   // temporary node
 
@@ -85,7 +83,7 @@ func (t *btree) depth() int {
 	return _calculate_depth(t.root, 0)
 }
 
-/*
+
 func main() {
 	t := btree{nil}
 	t.root = newNode(0)
@@ -97,14 +95,14 @@ func main() {
 	t.root.right.right = newNode(6)
 	t.root.right.right.right = newNode(10)
 
-	inorder(t.root)
+	inOrder(t.root)
 	fmt.Print("\n")
-	preorder(t.root)
+	preOrder(t.root)
 	fmt.Print("\n")
-	postorder(t.root)
+	postOrder(t.root)
 	fmt.Print("\n")
-	levelorder(t.root)
+	levelOrder(t.root)
 	fmt.Print("\n")
 	fmt.Print(t.depth(), "\n")
 }
-*/
+

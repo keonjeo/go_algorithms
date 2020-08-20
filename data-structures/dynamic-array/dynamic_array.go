@@ -1,7 +1,8 @@
-package dynamic-array
+package main
 
 import (
 	"errors"
+	"fmt"
 )
 
 var defaultCapacity = 10
@@ -87,28 +88,28 @@ func (da *dynamicArray) newCapacity() {
 	da.elementData = newDataElement
 }
 
-// func main() {
-// 	numbers := dynamicArray{}
-// 	fmt.Println(numbers.isEmpty())
+func main() {
+	numbers := dynamicArray{}
+	fmt.Println(numbers.isEmpty())
 
-// 	numbers.add(10)
-// 	numbers.add(20)
-// 	numbers.add(30)
-// 	numbers.add(40)
-// 	numbers.add(50)
+	numbers.add(10)
+	numbers.add(20)
+	numbers.add(30)
+	numbers.add(40)
+	numbers.add(50)
 
-// 	fmt.Println(numbers.isEmpty())
+	fmt.Println(numbers.isEmpty())
 
-// 	fmt.Println(numbers.getData())
+	fmt.Println(numbers.getData())
 
-// 	numbers.remove(1)
+	numbers.remove(1)
 
-// 	fmt.Println(numbers.getData())
+	fmt.Println(numbers.getData())
 
-// 	numberFound, _ := numbers.get(1)
-// 	fmt.Println(numberFound)
+	numberFound, _ := numbers.get(1)
+	fmt.Println(numberFound)
 
-// 	numbers.put(0, 100)
-// 	fmt.Println(numbers.getData())
-// }
+	numbers.put(0, 100)
+	fmt.Println(numbers.getData())
+}
 

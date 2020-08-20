@@ -1,9 +1,7 @@
 // Binary search tree
 // https://en.wikipedia.org/wiki/Binary_search_tree
 
-package binarySearchTree
-
-// package main
+package main
 
 import "fmt"
 
@@ -28,11 +26,11 @@ func newNode(val int) *node {
 	return &node{val, nil, nil}
 }
 
-func inorder(n *node) {
+func inOrder(n *node) {
 	if n != nil {
-		inorder(n.left)
+		inOrder(n.left)
 		fmt.Print(n.val, " ")
-		inorder(n.right)
+		inOrder(n.right)
 	}
 }
 
@@ -48,7 +46,7 @@ func insert(root *node, val int) *node {
 	return root
 }
 
-func inorderSuccessor(root *node) *node {
+func inOrderSuccessor(root *node) *node {
 	cur := root
 	for cur.left != nil {
 		cur = cur.left
@@ -56,14 +54,14 @@ func inorderSuccessor(root *node) *node {
 	return cur
 }
 
-func bst_delete(root *node, val int) *node {
+func bstDelete(root *node, val int) *node {
 	if root == nil {
 		return nil
 	}
 	if val < root.val {
-		root.left = bst_delete(root.left, val)
+		root.left = bstDelete(root.left, val)
 	} else if val > root.val {
-		root.right = bst_delete(root.right, val)
+		root.right = bstDelete(root.right, val)
 	} else {
 		// this is the node to delete
 
@@ -74,9 +72,9 @@ func bst_delete(root *node, val int) *node {
 			root = root.left
 		} else {
 			// node with two children
-			d := inorderSuccessor(root)
+			d := inOrderSuccessor(root)
 			root.val = d.val
-			root.right = bst_delete(root.right, d.val)
+			root.right = bstDelete(root.right, d.val)
 		}
 	}
 	return root
@@ -94,29 +92,27 @@ func (t *btree) depth() int {
 	return _calculate_depth(t.root, 0)
 }
 
-/*
 func main() {
 	t := &btree{nil}
-	inorder(t.root)
+	inOrder(t.root)
 	t.root = insert(t.root, 10)
 	t.root = insert(t.root, 20)
 	t.root = insert(t.root, 15)
 	t.root = insert(t.root, 30)
 	fmt.Print(t.depth(), "\n")
-	inorder(t.root)
+	inOrder(t.root)
 	fmt.Print("\n")
-	t.root = bst_delete(t.root, 10)
-	inorder(t.root)
+	t.root = bstDelete(t.root, 10)
+	inOrder(t.root)
 	fmt.Print("\n")
-	t.root = bst_delete(t.root, 30)
-	inorder(t.root)
+	t.root = bstDelete(t.root, 30)
+	inOrder(t.root)
 	fmt.Print("\n")
-	t.root = bst_delete(t.root, 15)
-	inorder(t.root)
+	t.root = bstDelete(t.root, 15)
+	inOrder(t.root)
 	fmt.Print("\n")
-	t.root = bst_delete(t.root, 20)
-	inorder(t.root)
+	t.root = bstDelete(t.root, 20)
+	inOrder(t.root)
 	fmt.Print("\n")
 	fmt.Print(t.depth(), "\n")
 }
-*/

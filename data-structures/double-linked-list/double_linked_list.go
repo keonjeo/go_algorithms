@@ -1,8 +1,6 @@
 // demonstration of doubly linked list in golang
 
-package doublelinkedlist
-
-// package main
+package main
 
 import "fmt"
 
@@ -12,7 +10,7 @@ type node struct {
 	prev *node
 }
 
-type doublelinkedlist struct {
+type DoubleLinkedList struct {
 	head *node
 }
 
@@ -25,13 +23,13 @@ func newNode(val int) *node {
 	return n
 }
 
-func (ll *doublelinkedlist) addAtBeg(val int) {
+func (ll *DoubleLinkedList) addAtBeg(val int) {
 	n := newNode(val)
 	n.next = ll.head
 	ll.head = n
 }
 
-func (ll *doublelinkedlist) addAtEnd(val int) {
+func (ll *DoubleLinkedList) addAtEnd(val int) {
 	n := newNode(val)
 
 	if ll.head == nil {
@@ -46,7 +44,7 @@ func (ll *doublelinkedlist) addAtEnd(val int) {
 	n.prev = cur
 }
 
-func (ll *doublelinkedlist) delAtBeg() int {
+func (ll *DoubleLinkedList) delAtBeg() int {
 	if ll.head == nil {
 		return -1
 	}
@@ -61,7 +59,7 @@ func (ll *doublelinkedlist) delAtBeg() int {
 	return cur.val
 }
 
-func (ll *doublelinkedlist) delAtEnd() int {
+func (ll *DoubleLinkedList) delAtEnd() int {
 	// no item
 	if ll.head == nil {
 		return -1
@@ -82,7 +80,7 @@ func (ll *doublelinkedlist) delAtEnd() int {
 	return retval
 }
 
-func (ll *doublelinkedlist) count() int {
+func (ll *DoubleLinkedList) count() int {
 	var ctr int = 0
 
 	for cur := ll.head; cur != nil; cur = cur.next {
@@ -92,7 +90,7 @@ func (ll *doublelinkedlist) count() int {
 	return ctr
 }
 
-func (ll *doublelinkedlist) reverse() {
+func (ll *DoubleLinkedList) reverse() {
 	var prev, next *node
 	cur := ll.head
 
@@ -107,7 +105,7 @@ func (ll *doublelinkedlist) reverse() {
 	ll.head = prev
 }
 
-func (ll *doublelinkedlist) display() {
+func (ll *DoubleLinkedList) display() {
 	for cur := ll.head; cur != nil; cur = cur.next {
 		fmt.Print(cur.val, " ")
 	}
@@ -115,7 +113,7 @@ func (ll *doublelinkedlist) display() {
 	fmt.Print("\n")
 }
 
-func (ll *doublelinkedlist) displayReverse() {
+func (ll *DoubleLinkedList) displayReverse() {
 	if ll.head == nil {
 		return
 	}
@@ -130,9 +128,9 @@ func (ll *doublelinkedlist) displayReverse() {
 	fmt.Print("\n")
 }
 
-/*
+
 func main() {
-	ll := doublelinkedlist{}
+	ll := DoubleLinkedList{}
 
 	ll.addAtBeg(10)
 	ll.addAtEnd(20)
@@ -153,4 +151,4 @@ func main() {
 	fmt.Print(ll.delAtBeg(), "\n")
 	ll.display()
 }
-*/
+

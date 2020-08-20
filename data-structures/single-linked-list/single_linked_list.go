@@ -1,8 +1,6 @@
 // demonstration of singly linked list in golang
 
-package singlelinkedlist
-
-// package main
+package main
 
 import "fmt"
 
@@ -11,7 +9,7 @@ type node struct {
 	next *node
 }
 
-type singlelinkedlist struct {
+type SingleLinkedList struct {
 	head *node
 }
 
@@ -20,13 +18,13 @@ func newNode(val int) *node {
 	return &node{val, nil}
 }
 
-func (ll *singlelinkedlist) addAtBeg(val int) {
+func (ll *SingleLinkedList) addAtBeg(val int) {
 	n := newNode(val)
 	n.next = ll.head
 	ll.head = n
 }
 
-func (ll *singlelinkedlist) addAtEnd(val int) {
+func (ll *SingleLinkedList) addAtEnd(val int) {
 	n := newNode(val)
 
 	if ll.head == nil {
@@ -40,7 +38,7 @@ func (ll *singlelinkedlist) addAtEnd(val int) {
 	cur.next = n
 }
 
-func (ll *singlelinkedlist) delAtBeg() int {
+func (ll *SingleLinkedList) delAtBeg() int {
 	if ll.head == nil {
 		return -1
 	}
@@ -51,7 +49,7 @@ func (ll *singlelinkedlist) delAtBeg() int {
 	return cur.val
 }
 
-func (ll *singlelinkedlist) delAtEnd() int {
+func (ll *SingleLinkedList) delAtEnd() int {
 	if ll.head == nil {
 		return -1
 	}
@@ -71,7 +69,7 @@ func (ll *singlelinkedlist) delAtEnd() int {
 
 }
 
-func (ll *singlelinkedlist) count() int {
+func (ll *SingleLinkedList) count() int {
 	var ctr int = 0
 
 	for cur := ll.head; cur != nil; cur = cur.next {
@@ -81,7 +79,7 @@ func (ll *singlelinkedlist) count() int {
 	return ctr
 }
 
-func (ll *singlelinkedlist) reverse() {
+func (ll *SingleLinkedList) reverse() {
 	var prev, next *node
 	cur := ll.head
 
@@ -95,7 +93,7 @@ func (ll *singlelinkedlist) reverse() {
 	ll.head = prev
 }
 
-func (ll *singlelinkedlist) display() {
+func (ll *SingleLinkedList) display() {
 	for cur := ll.head; cur != nil; cur = cur.next {
 		fmt.Print(cur.val, " ")
 	}
@@ -103,21 +101,21 @@ func (ll *singlelinkedlist) display() {
 	fmt.Print("\n")
 }
 
-// func main() {
-// 	ll := singlelinkedlist{}
+func main() {
+	ll := SingleLinkedList{}
 
-// 	ll.addAtBeg(10)
-// 	ll.addAtEnd(20)
-// 	ll.display()
-// 	ll.addAtBeg(30)
-// 	ll.display()
-// 	ll.reverse()
-// 	ll.display()
+	ll.addAtBeg(10)
+	ll.addAtEnd(20)
+	ll.display()
+	ll.addAtBeg(30)
+	ll.display()
+	ll.reverse()
+	ll.display()
 
-// 	fmt.Print(ll.delAtBeg(), "\n")
-// 	ll.display()
+	fmt.Print(ll.delAtBeg(), "\n")
+	ll.display()
 
-// 	fmt.Print(ll.delAtEnd(), "\n")
-// 	ll.display()
+	fmt.Print(ll.delAtEnd(), "\n")
+	ll.display()
 
-// }
+}

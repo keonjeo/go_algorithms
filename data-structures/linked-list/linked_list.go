@@ -87,12 +87,12 @@ func (l *node) popBack() *node {
 }
 
 func main() {
-	lista := new(node)
-	lista.pushBack(25).pushBack(24).pushBack(32) /* lista: 25 24 32 */
-	lista.pushBack(56) /* lista: 25 24 32 56 */
-	lista.pushFront(36) /* lista: 36 25 24 32 56 */
-	lista.popFront() /* lista: 25 24 32 56 */
-	lista.popBack() /* lista: 25 24 32 */
+	listA := new(node)
+	listA.pushBack(25).pushBack(24).pushBack(32) /* listA: 25 24 32 */
+	listA.pushBack(56) /* listA: 25 24 32 56 */
+	listA.pushFront(36) /* listA: 36 25 24 32 56 */
+	listA.popFront() /* listA: 25 24 32 56 */
+	listA.popBack() /* listA: 25 24 32 */
 	
 	/* read the list until head is not nil */
 	for head != nil {

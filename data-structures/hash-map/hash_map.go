@@ -1,4 +1,4 @@
-package data-structures
+package main
 
 import (
 	"fmt"
@@ -121,21 +121,21 @@ func (hm *hashMap) hash(key interface{}) uint64 {
 	return (hm.capacity - 1) & (hashValue ^ (hashValue >> 16))
 }
 
-// func main() {
-// 	hashMap := newHashMap()
+func main() {
+	hashMap := newHashMap()
 
-// 	hashMap.put("test-1", 10)
-// 	fmt.Println(hashMap.get("test-1"))
+	hashMap.put("test-1", 10)
+	fmt.Println(hashMap.get("test-1"))
 
-// 	hashMap.put("test-1", 20)
-// 	hashMap.put("test-2", 30)
-// 	hashMap.put(1, 40)
+	hashMap.put("test-1", 20)
+	hashMap.put("test-2", 30)
+	hashMap.put(1, 40)
 
-// 	fmt.Println(hashMap.get("test-1"))
-// 	fmt.Println(hashMap.get("test-2"))
-// 	fmt.Println(hashMap.get(1))
+	fmt.Println(hashMap.get("test-1"))
+	fmt.Println(hashMap.get("test-2"))
+	fmt.Println(hashMap.get(1))
 
-// 	fmt.Println(hashMap.contains(2))
-// 	fmt.Println(hashMap.contains(1))
-// 	fmt.Println(hashMap.contains("test-1"))
-// }
+	fmt.Println(hashMap.contains(2))
+	fmt.Println(hashMap.contains(1))
+	fmt.Println(hashMap.contains("test-1"))
+}
